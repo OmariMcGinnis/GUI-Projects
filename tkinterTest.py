@@ -2,6 +2,22 @@ from tkinter import *
 
 top = Tk()
 playlist = []
+myRolls = []
+dieType = 0
+rollTimes = 0
+
+def addToList():
+    print("Adding to a list! Great choice!")
+    newItem = input("Type an integer here!  ")
+    myList.append(int(newItem))
+
+def addMany():
+    print("We're gonna add a bunch of integers to your list!")
+    numToAdd = input("How many numbers do you want to add   ")
+    numRange = input("How high do you want the numbers to go?   ")
+    for x in range(0, int(numToAdd)):
+        myList.append(random.randit(0, int(numRange)))
+    print("Your list is complete")
 
 def printList():
     print(playlist)
@@ -26,7 +42,7 @@ def mainMenu():
     E2Main = Button(text = "Week 2", bg = "white", command = week2)
     E2Main.grid(column = 0, row = 3)
     
-    E3Main = Button(text = "Week 3", bg = "white")
+    E3Main = Button(text = "Week 3", bg = "white", command = week3)
     E3Main.grid(column = 0, row = 4)
     
 def week1():
@@ -78,7 +94,17 @@ def week2():
     B1W2 = Button(text = "Roll Dice", bg = "light yellow")
     B1W2.grid(column = 2, row = 4)
 
+def week3():
+    clearWindow()
 
+    L1W3 = Label(top, text = "List App!")
+    L1W3.grid(column = 2, row = 1)
+
+    B1W3 = Button(top, text = "Add to List!", bg = "white", command = addToList)
+    B1W3.grid(column = 1, row = 2)
+
+    B2W3 = Button(top, text = "addMany", bg = "white", command = addMany)
+    B2W3.grid(column = 3, row = 2)
 
 
 
